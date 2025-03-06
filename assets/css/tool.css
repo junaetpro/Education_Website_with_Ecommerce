@@ -1,0 +1,685 @@
+/*-----------------------------------*\
+  #main.css
+\*-----------------------------------*/
+
+/**
+ * copyright 2022 codewithsadee
+ */
+
+
+
+
+
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+
+a,
+img,
+span,
+input,
+button,
+ion-icon { display: block; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img { height: auto; }
+
+input,
+button {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input { width: 100%; }
+
+button { cursor: pointer; }
+
+ion-icon {
+  pointer-events: none;
+  color: var(--white);
+}
+
+html {
+  font-family: var(--ff-urbanist);
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--oxford-blue-2);
+  color: var(--cadet-grey);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  z-index: 1;
+}
+
+::-webkit-scrollbar { width: 10px; }
+
+::-webkit-scrollbar-track { background-color: hsl(0, 0%, 98%); }
+
+::-webkit-scrollbar-thumb { background-color: hsl(0, 0%, 80%); }
+
+::-webkit-scrollbar-thumb:hover { background-color: hsl(0, 0%, 70%); }
+
+
+
+
+
+/*-----------------------------------*\
+  #REUSED STYLE
+\*-----------------------------------*/
+
+.container { padding-inline: 12px; }
+
+.body-bg-shape {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background-image: var(--linear-gradient-1);
+  border-radius: var(--radius-circle);
+  filter: blur(200px);
+  z-index: -1;
+}
+
+.headline-lg {
+  color: var(--white);
+  font-size: var(--headline-lg);
+  font-weight: var(--fw-700);
+}
+
+.headline-md { font-size: var(--headline-md); }
+
+.headline-lg,
+.headline-md { line-height: 1.35; }
+
+.title-lg { font-size: var(--title-lg); }
+
+.title-md { font-size: var(--title-md); }
+
+.title-sm { font-size: var(--title-sm); }
+
+.body-lg { font-size: var(--body-lg); }
+
+.body-md { font-size: var(--body-md); }
+
+.label-lg { font-size: var(--label-lg); }
+
+.label-md { font-size: var(--label-md); }
+
+.headline-md,
+.title-lg,
+.title-md,
+.title-sm {
+  color: var(--white);
+  font-weight: var(--fw-600);
+}
+
+.btn-icon {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-circle);
+  border: 1px solid var(--blue-violet);
+}
+
+.btn-icon ion-icon { --ionicon-stroke-width: 50px; }
+
+.btn-icon.primary {
+  background-color: var(--blue-violet);
+  transition: var(--transition-1);
+}
+
+.btn-icon.primary:is(:hover, :focus-visible) {
+  background-color: var(--electric-indigo);
+  border-color: var(--electric-indigo);
+}
+
+.link\:hover:is(:hover, :focus-visible) { color: var(--blue-violet); }
+
+.section { padding-block: var(--section-padding); }
+
+.btn {
+  background-color: var(--blue-violet);
+  color: var(--white);
+  max-width: max-content;
+  font-size: var(--body-md);
+  font-weight: var(--fw-600);
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition-1);
+}
+
+.btn:is(:hover, :focus-visible) { background-color: var(--electric-indigo); }
+
+.text-center { text-align: center; }
+
+.section-title { margin-block-end: 44px; }
+
+.card {
+  background-color: var(--oxford-blue-2);
+  border-radius: var(--radius-8);
+}
+
+.card-banner { border-radius: var(--radius-8); }
+
+.img-holder {
+  aspect-ratio: var(--width) / var(--height);
+  background-color: var(--oxford-blue);
+  overflow: hidden;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-2);
+}
+
+.grid-list {
+  display: grid;
+  gap: 32px;
+}
+
+
+
+
+
+/*-----------------------------------*\
+  #HEADER
+\*-----------------------------------*/
+
+
+
+
+/*-----------------------------------*\
+  #DISCOVER
+\*-----------------------------------*/
+#discover-label{
+  margin-top: 50px;
+}
+.discover-card {
+  padding: 8px;
+  border: 1px solid var(--gunmetal);
+  box-shadow: var(--shadow-5);
+  transition: var(--transition-1);
+}
+
+.discover-card:is(:hover, :focus-within) {
+  box-shadow: var(--shadow-3);
+  transform: translateY(-8px);
+}
+
+.discover-card .card-banner { position: relative; }
+
+.discover-card:is(:hover, :focus-within) .img-cover { transform: scale(1.1); }
+
+.discover-card .btn {
+  padding: 8px 16px;
+  font-size: var(--label-md);
+  position: absolute;
+  top: calc(100% + 50px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: var(--transition-2);
+}
+
+.discover-card:is(:hover, :focus) .btn { top: 50%; }
+
+.discover-card .card-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-block-start: 12px;
+}
+
+.discover-card .card-profile .img { border-radius: var(--radius-circle); }
+
+.discover-card .card-title { margin-block: 12px; }
+
+.discover-card .card-meta {
+  background-color: var(--prussian-blue);
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: var(--radius-8);
+}
+
+.discover-card .card-price {
+  color: var(--white);
+  display: flex;
+  gap: 4px;
+  font-weight: var(--fw-500);
+}
+
+.discover-card .countdown {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: max-content;
+  background-image: var(--linear-gradient-2);
+  color: var(--white);
+  font-weight: var(--fw-700);
+  padding: 4px 16px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.discover-card .countdown ion-icon {
+  --ionicon-stroke-width: 50px;
+  font-size: 2.2rem;
+}
+
+.discover .btn-link {
+  margin-inline: auto;
+  margin-block-start: 32px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*-----------------------------------*\
+  #BACK TO TOP
+\*-----------------------------------*/
+
+.back-to-top {
+  background-color: var(--blue-violet);
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+  transition: var(--transition-1);
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-10px);
+}
+
+
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+ * responsive for large than 575px screen
+ */
+
+@media (min-width: 575px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container {
+    max-width: 480px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+
+
+  /**
+   * HEADER
+   */
+
+  .header .container { max-width: unset; }
+
+
+
+  /**
+   * NEWSLETTER
+   */
+
+  .newsletter .input-wrapper { position: relative; }
+
+  .newsletter .input-field {
+    margin-block-end: 0;
+    padding-inline-end: 140px;
+  }
+
+  .newsletter .btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    bottom: 4px;
+  }
+
+}
+
+
+
+
+
+/**
+ * responsive for large than 768px screen
+ */
+
+@media (min-width: 768px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --headline-md: 3rem;
+
+    /**
+     * spacing
+     */
+
+    --section-padding: 48px;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container,
+  .header .container { max-width: 768px; }
+
+  .grid-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .section-text {
+    max-width: 575px;
+    margin-inline: auto;
+  }
+
+
+
+  /**
+   * HEADER
+   */
+
+  .logo-small { display: none; }
+
+  .header .logo { display: block; }
+
+  
+
+  /**
+   * HERO
+   */
+
+  .hero { --section-padding: 240px 80px; }
+
+
+
+  /**
+   * TOP COLLECTION
+   */
+
+  .top-collection .title-wrapper .btn-link {
+    display: flex;
+    margin: 0;
+  }
+
+  .top-collection .title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .top-collection .slider {
+    --slider-item: 2;
+
+    margin-inline: -16px;
+    padding-inline: 8px;
+  }
+
+  .top-collection .slider-item { padding-inline: 12px; }
+
+  .top-collection .container > .btn-link { display: none; }
+
+
+
+  /**
+   * DISCOVER
+   */
+
+  .discover .btn-link { margin-block-start: 60px; }
+
+
+
+  /**
+   * NEWSLETTER
+   */
+
+  .newsletter { margin-block-end: -130px; }
+
+  .newsletter-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .newsletter .text-center { text-align: left; }
+
+  .newsletter .headline-md { --headline-md: 2.6rem; }
+
+  .newsletter-card .card-text { margin-block-end: 0; }
+
+
+
+  /**
+   * FOOTER
+   */
+
+  .footer-top { padding-block-start: calc(var(--section-padding) + 80px); }
+
+  .footer-top .container { grid-template-columns: 1fr 1fr; }
+
+  .footer-brand { padding-inline-end: 40px; }
+
+}
+
+
+
+
+
+/**
+ * responsive for large than 992px screen
+ */
+
+@media (min-width: 992px) {
+
+  /**
+   * CUSTOM PROPERTY
+   */
+
+  :root {
+
+    /**
+     * typography
+     */
+
+    --headline-lg: 6rem;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container,
+  .header .container { max-width: 950px; }
+
+  .grid-list { grid-template-columns: repeat(3, 1fr); }
+
+
+
+  /**
+   * HEADER
+   */
+
+  .header {
+    background: none;
+    box-shadow: none;
+  }
+
+  .header.active {
+    background: var(--oxford-blue-2);
+    box-shadow: var(--shadow-1);
+  }
+
+  .nav-toggle-btn { display: none; }
+
+  .header-action { gap: 12px; }
+
+  .navbar,
+  .navbar.active {
+    all: unset;
+    display: block;
+    margin-inline: auto 24px;
+  }
+
+  .navbar-list {
+    display: flex;
+    gap: 12px;
+  }
+
+
+
+  /**
+   * TOP COLLECTION
+   */
+
+  .top-collection .slider { --slider-item: 3; }
+
+
+
+  /**
+   * QNA
+   */
+
+  .qna .container { max-width: 55%; }
+
+
+
+  /**
+   * NEWSLETTER
+   */
+
+  .newsletter-card { padding-inline: 32px; }
+
+  .newsletter .bg-icon { font-size: 15rem; }
+
+  .newsletter .bg-icon-1 {
+    top: -36px;
+    left: -36px;
+  }
+
+  .newsletter .bg-icon-2 {
+    bottom: -30px;
+    right: -30px;
+  }
+
+
+
+  /**
+   * FOOTER
+   */
+
+  .footer-top .container { grid-template-columns: 1fr 0.5fr 0.5fr 0.8fr; }
+
+}
+
+
+
+
+
+/**
+ * responsive for large than 1200px screen
+ */
+
+@media (min-width: 1200px) {
+
+  /**
+   * REUSED STYLE
+   */
+
+  :root {
+
+    /**
+     * spacing
+     */
+
+    --section-padding: 56px;
+
+  }
+
+
+
+  /**
+   * REUSED STYLE
+   */
+
+  .container,
+  .header .container { max-width: 1120px; }
+
+
+
+  /**
+   * TOP COLLECTION
+   */
+
+  .top-collection .slider { --slider-item: 4; }
+
+
+
+  /**
+   * DISCOVER
+   */
+
+  .discover .grid-list { grid-template-columns: repeat(4, 1fr); }
+
+}
